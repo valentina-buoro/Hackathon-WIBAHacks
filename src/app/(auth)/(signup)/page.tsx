@@ -58,11 +58,11 @@ const Index = () => {
       <div className="flex flex-col items-center justify-center h-screen gap-6 mx-auto lg:w-3/5">
         <div className="p-4">
           <h4 className="text-center text-2xl font-bold">
-            Hello, Welcome to WIBA TEAM 4
+            Hello &#128075;, Welcome to WIBA TEAM 4
           </h4>
-          <p className="">Sign Up To Get Started</p>
+          <p className=" text-center ">Sign Up To Get Started</p>
         </div>
-        <div className="flex justify-between p-4 w-[440px] rounded-sm bg-[#E3EBF3]">
+        <div className="flex justify-between p-4 max-w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
           <input
             className="bg-inherit w-11/12 border-none outline-none"
             placeholder="Enter full name"
@@ -75,7 +75,7 @@ const Index = () => {
             <Image className="w-5" src={User} alt={"div icon"} />
           </button>
         </div>
-        <div className="flex justify-between p-4 w-[440px] rounded-sm bg-[#E3EBF3]">
+        <div className="flex justify-between p-4 max-w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
           <input
             className="bg-inherit w-11/12 border-none outline-none"
             placeholder="Enter email"
@@ -88,7 +88,7 @@ const Index = () => {
             <Image className="w-5" src={Email} alt={"div icon"} />
           </button>
         </div>
-        <div className="flex justify-between p-4 w-[440px] rounded-sm bg-[#E3EBF3]">
+        <div className="flex justify-between p-4 max-w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
           <input
             className="bg-inherit w-11/12 border-none outline-none"
             placeholder="Enter password"
@@ -101,7 +101,7 @@ const Index = () => {
             <Image className="w-5" src={Password} alt={"div icon"} />
           </button>
         </div>
-        {/*<div className="flex justify-between p-4 w-[440px] rounded-sm bg-[#E3EBF3]">
+        {/*<div className="flex justify-between p-4 max-w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
           <input
             className="bg-inherit w-11/12 border-none outline-none"
             placeholder="Confirm password"
@@ -115,7 +115,7 @@ const Index = () => {
           </button>
   </div>*/}
         <button
-          className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-4 text-white rounded-full w-[440px] mt-10"
+          className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-4 text-white rounded-full max-w-[440px] w-[320px]  mt-10"
           type="submit"
           onClick={handleSubmit}
         >

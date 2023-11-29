@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import ReactModal from "react-modal";
+
 import Image from "next/image";
 import User from "../../../../public/user.svg";
 import Email from "../../../../public/email.svg";
@@ -18,6 +20,12 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [show, setShow] = useState(false);
+  
+  //ReactModal.setAppElement("react-modals")
+
+  ReactModal.setAppElement("*");
+
   const handleSubmitForm = async () => {
     setIsLoading(true);
     try {
@@ -28,8 +36,10 @@ const Index = () => {
       console.log("API response:", response.data);
       if (response.data.success === true) {
         localStorage.setItem("access_token", response.data.access_token);
-        // Data was posted successfully
-        // Navigate to another page
+        setShow(true);
+        values.email = "";
+        values.full_name = "";
+        values.password = "";
         console.log("Success");
       } else {
         throw new Error("Error posting data to API");
@@ -126,6 +136,26 @@ const Index = () => {
           already have an account? <a className="text-blue-500">Login</a>
         </Link>
       </div>
+      {show ? (
+        <ReactModal
+          isOpen={show}
+          onRequestClose={() => setShow(false)}
+          className=" w-[240px] lg:w-[350px] mx-auto flex text-center items-center flex-col  justify-between p-5 h-[240px] lg:h-[350px] gap-6  z-30 bg-white border  mt-10 "
+        >
+          <div className="w-full items-end text-right pr-3 hover:cursor-pointer">
+            <span
+              className="  lg:text-[24px] text-right"
+              onClick={() => setShow(false)}
+            >
+              X
+            </span>
+          </div>
+          <h3 className="font-medium lg:text-3xl">Success</h3>
+          <span className=" text-[24px] lg:text-[80px]">&#128077;</span>
+
+          <p>Check your email for verification link</p>
+        </ReactModal>
+      ) : null}
     </div>
   );
 };

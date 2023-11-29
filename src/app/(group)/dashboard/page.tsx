@@ -40,8 +40,8 @@ const Page = () => {
     fetchUser();
   }, []);
   return (
-    <div className=" min-h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-      <main className="p-4 w-5/6 lg:w-3/5 mx-auto bg-white min-h-screen">
+    <div className=" min-h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+      <main className="p-4 w-5/6 lg:w-3/5 mx-auto bg-white min-h-screen rounded-2xl">
         <h1 className="text-3xl font-bold text-center p-6">WIBA TEAM 4</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-5">
           <section className="lg:col-span-1">

@@ -42,7 +42,7 @@ const Page = () => {
   },[])
   return (
     <div className=" min-h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-      <main className="p-4 lg:w-3/5 mx-auto bg-white min-h-screen">
+      <main className="p-4 w-5/6 lg:w-3/5 mx-auto bg-white min-h-screen">
       <h1 className="text-3xl font-bold text-center ">WIBA TEAM 4</h1>
       <section>
       <Image src={ `https://ui-avatars.com/api/?name=${user?.full_name}&background=random`} alt="WIBA TEAM 4" className='rounded-full' width={40} height={40} />  

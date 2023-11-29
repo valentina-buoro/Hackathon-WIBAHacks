@@ -29,7 +29,7 @@ const Index = () => {
       );
       console.log("API response:", response.data);
       if (response.data.success === true) {
-        localStorage.setItem("access_token", response.data.access_token);
+        localStorage.setItem("access_token", response.data.message);
         // Data was posted successfully
         // Navigate to another page
         router.push("/dashboard");

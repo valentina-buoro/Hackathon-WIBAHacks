@@ -9,6 +9,8 @@ import { contractAddress, contractAbi } from "../../../_constants/constant";
 import Navbar from "@/_components/navbar";
 import Hero from "@/_components/hero";
 import ElectionNews from "@/_components/electionNews";
+import NewsLetter from "@/_components/newsLetter";
+import Footer from "@/_components/footer";
 
 const Page = () => {
   const [user, setUser] = useState({
@@ -138,6 +140,8 @@ const Page = () => {
   <Navbar/>
   <Hero/>
   <ElectionNews/>
+  <NewsLetter/>
+  <Footer/>
 
 </div>
 

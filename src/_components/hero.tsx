@@ -34,14 +34,14 @@ const Hero = ({ connected }: NavbarProps) => {
           </div>
         </div>
         <div className="relative col-span-1">
-          <div className="h-5/6 w-[300px] lg:w-[600px]">
+          <div className="h-5/6 w-[270px] lg:w-[600px]">
             <Image
               src={Hands}
               alt="hands"
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="right-0 bottom-0 absolute w-[100px] lg:[150px] h-[150px] lg:h-[250px]">
+          <div className="right-0 bottom-0 absolute w-[80px] lg:[150px] h-[150px] lg:h-[250px]">
             <Image
               src={Bars}
               alt="bars"

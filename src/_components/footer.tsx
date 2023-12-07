@@ -17,7 +17,7 @@ const Footer = () => {
           <span className="w-[40px] h-[40px] md:w-[90px] md:h-[90px] flex items-center justify-end">
             <Image src={Logo} alt="logo" />{" "}
           </span>
-          <span>VoteMe</span>
+          <span>TrustBallot</span>
         </span>
       </div>
       <div className="grid grid-cols-3 gap-3 md:gap-5 lg:px-10 py-14">

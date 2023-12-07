@@ -12,7 +12,7 @@ const Page = (props:any) => {
   const [connected, setConnected] = useState(false);
 
   async function connectToMetamask(){
-    if (window.ethereum) {
+    /*if (window.ethereum) {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         setProvider(provider);
@@ -28,7 +28,7 @@ const Page = (props:any) => {
       }
     } else{
       alert("Please install metamask");
-    }
+    }*/
       
   }
   

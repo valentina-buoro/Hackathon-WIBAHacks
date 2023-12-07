@@ -20,8 +20,8 @@ const Navbar = () => {
                 </Link>
             </div>
   <div>*/}
-            <button className='py-1 px-3 lg:py-3 lg:px-[5px] border-2 border-black bg-[#008000] text-[#FAFAFA] rounded-xl text-[14px] shadow-md shadow-[#2E2F35]'>
-               <Link href="/election/create-election">Get Started</Link>
+            <button className='py-1 px-3 lg:py-3 lg:px-[5px]   bg-[#008000] text-[#FAFAFA] rounded-xl text-[14px] shadow-md shadow-[#2E2F35]'>
+               <Link href="/connect-metamask">Get Started</Link>
             </button>
             </div>
         </div>

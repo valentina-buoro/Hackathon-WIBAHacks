@@ -34,9 +34,21 @@ const Page = (props:any) => {
   
 
   return (
-    <div>
+    /*<div>
       <h1>Welcome to decentralized voting</h1>
       <button onClick={connectToMetamask}>Click me</button>
+    </div>*/
+    <div>
+      <div className="flex justify-between p-4 lg:w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
+          <input
+            className="bg-inherit w-11/12 border-none outline-none"
+            placeholder="Enter full name"
+            id="full_name"
+            name="full_name"
+            value={''}
+            onChange={()=>{}}
+          />
+          </div>
     </div>
   )
 }

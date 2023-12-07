@@ -37,7 +37,7 @@ const Page = (props: any) => {
       <button onClick={connectToMetamask}>Click me</button>
     </div>*/
     <>
-    <Navbar/>
+    <Navbar />
     <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
       <div className="mx-auto w-[300px] md:w-[460px]  ">
         <div className="mb-6 md:mb-8 lg:mb-10 text-center">

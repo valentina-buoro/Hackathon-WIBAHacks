@@ -8,3 +8,7 @@ export interface SignupProps {
     'email': string;
     'password': string;
 }
+
+export interface NavbarProps{
+    connected?: boolean
+}

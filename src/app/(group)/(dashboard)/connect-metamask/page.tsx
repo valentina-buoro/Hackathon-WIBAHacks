@@ -5,31 +5,49 @@ import axios from "axios";
 import Register from "../../../../../public/registerVote.png";
 import Link from "next/link";
 import { LoginProps } from "@/app/types";
-//import useSignup from '../../../_hooks/useSignup'
 import { useRouter } from "next/navigation";
 import Footer from "@/_components/footer";
 import Navbar from "@/_components/navbar";
 
+import { ethers } from "ethers";
+
 const Index = () => {
-  const router = useRouter();
-  const initialState: LoginProps = {
-    email: "",
+  const [provider, setProvider] = useState({});
+  const [account, setAccount] = useState("");
+  const [connected, setConnected] = useState(false);
 
-    password: "",
-  };
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleSubmitForm = async () => {};
+  async function connectToMetamask() {
+    if ((window as any).ethereum) {
+      try {
+        const provider = new ethers.providers.Web3Provider(
+          (window as any).ethereum
+        );
+        setProvider(provider);
+        await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        setAccount(address);
+        console.log("Metamask Connected : " + address);
+        setConnected(true);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Please install metamask");
+    }
+  }
 
   return (
     <>
-    <Navbar/>
+      <Navbar connected={connected} />
       <div className="flex flex-col lg:flex-row justify-between h-screen p-8 lg:px-20 bg-[#F8F3F3]">
         <div className=" flex flex-col items-center justify-center space-y-10 lg:space-y-40 lg:h-screen lg:w-2/5">
           <div className="flex flex-col items-center justify-center gap-y-10 lg:w-[440px] w-[320px]">
             <p className=" text-2xl md:3xl lg:text-4xl font-bold">Register</p>
-            <button className="rounded-[10px]  text-[#F6F4F4] bg-[#001F3F] lg:py-4 py-3 lg:w-[440px] w-[320px]">
+            <button
+              className="rounded-[10px]  text-[#F6F4F4] bg-[#001F3F] lg:py-4 py-3 lg:w-[440px] w-[320px]"
+              onClick={connectToMetamask}
+            >
               Connect with your metamask wallet
             </button>
           </div>

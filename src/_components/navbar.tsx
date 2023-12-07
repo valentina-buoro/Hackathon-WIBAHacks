@@ -2,8 +2,12 @@ import Link from 'next/link'
 import React from 'react'
 import Logo from '../../public/logo.svg'
 import Image from 'next/image'
+import { NavbarProps } from '@/app/types'
 
-const Navbar = () => {
+
+
+
+const Navbar = ({connected}: NavbarProps) => {
   return (
     <div className=''>
         <div className='flex justify-between items-center h-16 px-8 lg:px-20  shadow-md'>
@@ -21,7 +25,7 @@ const Navbar = () => {
             </div>
   <div>*/}
             <button className='py-1 px-3 lg:py-3 lg:px-[25px]   bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]'>
-               <Link href="/connect-metamask">Get Started</Link>
+               <Link href="/connect-metamask">{connected? 'Connected': 'Get Started'}</Link>
             </button>
             </div>
         </div>

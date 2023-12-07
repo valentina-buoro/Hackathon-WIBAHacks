@@ -38,10 +38,10 @@ const Page = (props: any) => {
     </div>*/
     <>
     <Navbar/>
-    <div className=" justify-between h-screen p-8 lg:px-20 bg-[#F8F3F3]">
+    <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
       <div className="mx-auto w-[300px] md:w-[460px]  ">
-        <div>
-          <p>Input generated code sent to you to cast your vote</p>
+        <div className="mb-6 md:mb-8 lg:mb-10 text-center">
+          <p className=" text-2xl md:3xl lg:text-4xl font-bold">Create Vote</p>
         </div>
         <div className="mb-4 md:mb-6">
           <label

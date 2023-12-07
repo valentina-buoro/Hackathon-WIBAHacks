@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className='px-8 lg:px-20'>
         <div className='flex items-center justify-center border-b border-[#D9D9D9] pb-10 pt-6'>
-            <Image src={Logo} width={100} height={100} alt='VoteMe Logo' />
+        <span className='text-[#3366CC] font-black flex md:text-[28.777px] md:leading-[ 25.899px] items-center justify-center'><span className='w-[40px] h-[40px] md:w-[90px] md:h-[90px] flex items-center justify-end'><Image src={Logo} alt="logo"  /> </span><span>VoteMe</span></span>
         </div>
         <div className='grid grid-cols-3 gap-5 lg:px-10 py-14'>
             <div>

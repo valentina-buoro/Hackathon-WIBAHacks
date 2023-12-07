@@ -9,9 +9,9 @@ import News3 from '../../public/image 5.png'
 
 const ElectionNews = () => {
   return (
-    <div className='px-20 mx-auto mt-24'>
+    <div className='px-8 lg:px-20 mx-auto mt-24'>
         <div className='mx-auto'>
-            <p className='text-[63px] font-bold mb-14 text-center'>Ongoing <span className="text-[#008000]">Elections</span> </p>
+            <p className='text-[30px] md:text-[40px] lg:text-[63px] font-bold mb-14 text-center'>Ongoing <span className="text-[#008000]">Elections</span> </p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
                 <div className='col-span-1 w-[300px] md:w-[400px] mx-auto text-center'>
                     <Image src={Lagos} alt='election news'  />
@@ -28,7 +28,7 @@ const ElectionNews = () => {
             </div>
         </div>
         <div className='mx-auto mt-40'> 
-            <p className='text-[63px] font-bold mb-14 text-center' >Election News</p>
+            <p className='ext-[30px] md:text-[40px] lg:text-[63px] font-bold mb-14 text-center' >Election News</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
                 <div className='col-span-1 w-[300px] md:w-[363px] mx-auto text-left'>
                     <Image src={News} alt='election news'  />

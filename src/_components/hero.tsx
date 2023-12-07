@@ -2,6 +2,7 @@ import React from "react";
 import Hands from '../../public/hands.png'
 import Image from "next/image";
 import Bars from '../../public/bars.png'
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -19,7 +20,8 @@ const Hero = () => {
               its potential impact on the democratic process.
             </p>
             <button className="py-[22px] px-[65px]  bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]">
-              Get Started
+              <Link href='/connect-metamask'>
+              Get Started</Link>
             </button>
           </div>
         </div>

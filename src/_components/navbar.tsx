@@ -7,11 +7,11 @@ import { NavbarProps } from '@/app/types'
 
 
 
-const Navbar = ({connected}: NavbarProps) => {
+const Navbar = ({connected, connectToMetamask}: NavbarProps) => {
   return (
     <div className=''>
         <div className='flex justify-between items-center h-16 px-8 lg:px-20  shadow-md'>
-            <span className='text-[#3366CC] font-black flex md:text-[28.777px] md:leading-[ 25.899px] items-center justify-center'><span className='w-[30px] h-[30px] md:w-[50px] md:h-[50px] flex items-center justify-center'><Image src={Logo} alt="logo"  /> </span><span>VoteMe</span></span>
+           <Link href='/'> <span className='text-[#3366CC] font-black flex md:text-[28.777px] md:leading-[ 25.899px] items-center justify-center cursor-pointer '><span className='w-[30px] h-[30px] md:w-[50px] md:h-[50px] flex items-center justify-center'><Image src={Logo} alt="logo"  /> </span><span>VoteMe</span></span></Link>
             <div className='flex space-x-10'> 
             {/*<Link href="/" className='text-sm font-medium leading-5 active:font-black' >
                     Home
@@ -24,9 +24,9 @@ const Navbar = ({connected}: NavbarProps) => {
                 </Link>
             </div>
   <div>*/}
-            <button className='py-1 px-3 lg:py-3 lg:px-[25px]   bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]'>
-               <Link href="/connect-metamask">{connected? 'Connected': 'Get Started'}</Link>
-            </button>
+            <button className='py-1 px-3 lg:py-3 lg:px-[25px]   bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]' onClick={connectToMetamask}>
+               {connected? 'Connected': 'Get Started'}
+            </button >
             </div>
         </div>
 

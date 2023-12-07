@@ -11,4 +11,5 @@ export interface SignupProps {
 
 export interface NavbarProps{
     connected?: boolean
+    connectToMetamask? : ()=> void
 }

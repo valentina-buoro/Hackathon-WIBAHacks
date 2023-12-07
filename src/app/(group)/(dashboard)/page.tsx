@@ -18,42 +18,33 @@ const Page = () => {
     message: "",
     full_name: "",
   });
+  
+  const [votingStatus, setVotingStatus]= useState(true)
+  const [remainingTime, setremainingTime] = useState(0)
   const [provider, setProvider] = useState({});
   const [account, setAccount] = useState("");
   const [connected, setConnected] = useState(false);
-  const [votingStatus, setVotingStatus]= useState(true)
-  const [remainingTime, setremainingTime] = useState(0)
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem("access_token");
+  async function connectToMetamask() {
+    if ((window as any).ethereum) {
       try {
-        axios
-          .get("https://voting-basic.onrender.com/api/user", {
-            headers: {
-              Authorization: `${token}`,
-              "Content-Type": "application/json",
-            },
-          })
-          .then((response) => {
-            console.log(response);
-            console.log(response.data.message);
-            setUser(response.data.message);
-            //setStores(response.data.stores[0])
-          })
-          .catch((error) => {
-            // Handle any errors or display appropriate message
-            console.error(error);
-          });
-      } catch (error: any) {
-        console.error("Error:", error.message);
+        const provider = new ethers.providers.Web3Provider(
+          (window as any).ethereum
+        );
+        setProvider(provider);
+        await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        setAccount(address);
+        console.log("Metamask Connected : " + address);
+        setConnected(true);
+      } catch (error) {
+        console.log(error);
       }
-      //console.log(stores.address)
-    };
-
-    fetchUser();
-  }, []);
-
+    } else {
+      alert("Please install metamask");
+    }
+  }
   /*useEffect(() => {
     getCandidates()
     getRemainingTime()
@@ -137,64 +128,14 @@ const Page = () => {
 
   return (
 <div>
-  <Navbar/>
-  <Hero/>
+  <Navbar connected={connected} connectToMetamask={connectToMetamask} />
+  <Hero connected={connected} />
   <ElectionNews/>
   <NewsLetter/>
   <Footer/>
 
 </div>
 
-    /*
-
-  
-    <div className=" min-h-screen bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-      <main className="p-4 w-5/6 lg:w-3/5 mx-auto bg-white min-h-screen rounded-2xl">
-        <h1 className="text-3xl font-bold text-center p-6">WIBA TEAM 4</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-5">
-          <section className="lg:col-span-1">
-            <Image
-              src={`https://ui-avatars.com/api/?name=${user?.full_name}&background=random`}
-              alt="WIBA TEAM 4"
-              className="rounded-full"
-              width={50}
-              height={50}
-            />
-            <h3>Welcome {user.full_name}</h3>
-
-            <div className="flex flex-col items-left justify-center gap-6 py-6 mt-3">
-              <p>What would you like to do today?</p>
-              <button
-                className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full"
-                onClick={connectToMetamask}
-              >
-                {connected
-                  ? "Connected to metamask"
-                  : "Connect to your metamask"}
-              </button>
-              <h3>Wallet address: {account ? account : ""}</h3>
-
-              <Link
-                className=" underline"
-                href={connected ? "/election/create-election" : ""}
-              >
-                Create an election
-              </Link>
-              <Link className="underline" href="/election/manage-election">
-                Manage an election
-              </Link>
-            </div>
-          </section>
-          <section className="lg:col-span-1 mx-auto">
-            <h3>Ongoing Elections</h3>
-            <div className="w-[250px] h-[250px] bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
-          </section>
-        </div>
-        <div className="mt-8">
-          <h3>Past Elections</h3>
-        </div>
-      </main>
-                </div>*/
   );
 };
 

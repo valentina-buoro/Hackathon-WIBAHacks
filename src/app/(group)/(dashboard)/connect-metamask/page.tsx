@@ -2,8 +2,8 @@
 import React , {useState} from "react";
 import Image from "next/image";
 import axios from "axios";
-import Email from "../../../../public/email.svg";
-import Password from "../../../../public/password.svg";
+//import Email from "../../../../public/email.svg";
+//import Password from "../../../../public/password.svg";
 import Link from "next/link";
 import { LoginProps } from "@/app/types";
 //import useSignup from '../../../_hooks/useSignup'
@@ -49,7 +49,7 @@ const Index = () => {
             onChange={()=>{}}
           />
           <button className="">
-            <Image className="w-5" src={Email} alt={"div icon"} />
+            <Image className="w-5" src={''} alt={"div icon"} />
           </button>
         </div>
         <div className="flex justify-between p-4 lg:w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
@@ -62,7 +62,7 @@ const Index = () => {
             onChange={()=>{}}
           />
           <button className="">
-            <Image className="w-5" src={Password} alt={"div icon"} />
+            <Image className="w-5" src={''} alt={"div icon"} />
           </button>
         </div>
         <button

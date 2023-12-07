@@ -6,7 +6,7 @@ import Email from "../../../../public/email.svg";
 import Password from "../../../../public/password.svg";
 import Link from "next/link";
 import { LoginProps } from "@/app/types";
-import useSignup from '../../../_hooks/useSignup'
+//import useSignup from '../../../_hooks/useSignup'
 import { useRouter } from "next/navigation";
 
 const Index = () => {
@@ -20,37 +20,10 @@ const Index = () => {
   const [error, setError] = useState(null);
 
   const handleSubmitForm = async () => {
-    setIsLoading(true);
-    try {
-      
-      const response = await axios.post(
-        "https://voting-basic.onrender.com/api/login",values
-        
-      );
-      console.log("API response:", response.data);
-      if (response.data.success === true) {
-        localStorage.setItem("access_token", response.data.message);
-        // Data was posted successfully
-        // Navigate to another page
-        router.push("/dashboard");
-       console.log("Success");
-      } else {
-        throw new Error("Error posting data to API");
-      }
-    } catch (error: any) {
-      setError(error.response.data.msg);
-      console.error("Error sending form data :", error);
-    } finally {
-      setIsLoading(false);
-    }
-    console.log(values);
+    
   };
 
-  const { values, handleChange, handleSubmit } = useSignup(
-    initialState,
-    handleSubmitForm
-  );
-
+ 
   return (
     <div className="flex">
       <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center lg:h-screen lg:w-2/5 lg:bg-gradient-to-b from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
@@ -72,8 +45,8 @@ const Index = () => {
             placeholder="Enter email"
             id="email"
             name="email"
-            value={values.email}
-            onChange={handleChange}
+            value={''}
+            onChange={()=>{}}
           />
           <button className="">
             <Image className="w-5" src={Email} alt={"div icon"} />
@@ -85,8 +58,8 @@ const Index = () => {
             placeholder="Enter password"
             id="password"
             name="password"
-            value={values.password}
-            onChange={handleChange}
+            value={''}
+            onChange={()=>{}}
           />
           <button className="">
             <Image className="w-5" src={Password} alt={"div icon"} />
@@ -95,7 +68,7 @@ const Index = () => {
         <button
           className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-4 text-white rounded-full lg:w-[440px] w-[320px]  mt-10"
           type="submit"
-          onClick={handleSubmit}
+          onClick={()=>{}}
         >
           {isLoading ? "...Submitting" : "Login To Your Account"}
         </button>
@@ -110,3 +83,40 @@ const Index = () => {
 };
 
 export default Index;
+
+/*const Page = (props:any) => {
+  const [provider, setProvider] = useState({});
+  const [account, setAccount] = useState('');
+  const [connected, setConnected] = useState(false);
+
+  async function connectToMetamask(){
+    if (window.ethereum) {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(provider);
+        await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        setAccount(address);
+        console.log("Metamask Connected : " + address);
+        setConnected(true);
+      } 
+      catch (error) {
+        console.log(error);
+      }
+    } else{
+      alert("Please install metamask");
+    }
+      
+  }
+  
+
+  return (
+    <div>
+      <h1>Welcome to decentralized voting</h1>
+      <button onClick={connectToMetamask}>Click me</button>
+    </div>
+  )
+}
+
+export default Page*/

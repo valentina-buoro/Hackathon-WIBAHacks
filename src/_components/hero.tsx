@@ -18,7 +18,7 @@ const Hero = () => {
               Delve into the intricacies of this groundbreaking technology and
               its potential impact on the democratic process.
             </p>
-            <button className="py-[22px] px-[65px]  bg-[#008000] text-[#FAFAFA] rounded-xl text-[14px] shadow-md shadow-[#2E2F35]">
+            <button className="py-[22px] px-[65px]  bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]">
               Get Started
             </button>
           </div>

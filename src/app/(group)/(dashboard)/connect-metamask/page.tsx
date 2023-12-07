@@ -8,6 +8,7 @@ import { LoginProps } from "@/app/types";
 //import useSignup from '../../../_hooks/useSignup'
 import { useRouter } from "next/navigation";
 import Footer from "@/_components/footer";
+import Navbar from "@/_components/navbar";
 
 const Index = () => {
   const router = useRouter();
@@ -23,6 +24,7 @@ const Index = () => {
 
   return (
     <>
+    <Navbar/>
       <div className="flex flex-col lg:flex-row justify-between h-screen p-8 bg-[#F8F3F3]">
         <div className=" flex flex-col items-center justify-center space-y-10 lg:space-y-40 lg:h-screen lg:w-2/5">
           <div className="flex flex-col items-center justify-center gap-y-10 lg:w-[440px] w-[320px]">

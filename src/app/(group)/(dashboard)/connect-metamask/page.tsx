@@ -2,8 +2,7 @@
 import React , {useState} from "react";
 import Image from "next/image";
 import axios from "axios";
-//import Email from "../../../../public/email.svg";
-//import Password from "../../../../public/password.svg";
+import Register from '../../../../../public/registerVote.png'
 import Link from "next/link";
 import { LoginProps } from "@/app/types";
 //import useSignup from '../../../_hooks/useSignup'
@@ -32,51 +31,11 @@ const Index = () => {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center h-screen gap-6 mx-auto lg:w-3/5">
-        <div className="p-4">
-        <h4 className="text-center text-2xl font-bold">
-          Hello there &#128075;
-        </h4>
-        <p className="text-center" >Welcome back</p>
-        </div>
-      
-        <div className="flex justify-between p-4 lg:w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
-          <input
-            className="bg-inherit w-11/12 border-none outline-none"
-            placeholder="Enter email"
-            id="email"
-            name="email"
-            value={''}
-            onChange={()=>{}}
-          />
-          <button className="">
-            <Image className="w-5" src={''} alt={"div icon"} />
-          </button>
-        </div>
-        <div className="flex justify-between p-4 lg:w-[440px] w-[320px]  rounded-sm bg-[#E3EBF3]">
-          <input
-            className="bg-inherit w-11/12 border-none outline-none"
-            placeholder="Enter password"
-            id="password"
-            name="password"
-            value={''}
-            onChange={()=>{}}
-          />
-          <button className="">
-            <Image className="w-5" src={''} alt={"div icon"} />
-          </button>
-        </div>
-        <button
-          className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-4 text-white rounded-full lg:w-[440px] w-[320px]  mt-10"
-          type="submit"
-          onClick={()=>{}}
-        >
-          {isLoading ? "...Submitting" : "Login To Your Account"}
-        </button>
         
-
-        <Link href='/'>
-          don&apos;t have an account?   <a className="text-blue-500">Signup</a>
-        </Link>
+       <div>
+       <Image src={Register} alt="WIBA TEAM 4" className="rounded-full" />
+       </div>
+        
       </div>
     </div>
   );

@@ -64,6 +64,7 @@ const Page = (props: any) => {
 
   return (
     <>
+    <Navbar />
      
       <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
         <div>

@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [https://github.com/debeemedia/voting_web3_api/tree/main) to view the repository for backend and smartcontract codes.
+Open [https://github.com/debeemedia/voting_web3_api/tree/main) to view the repository for backend and smart contract codes.
 
 
 

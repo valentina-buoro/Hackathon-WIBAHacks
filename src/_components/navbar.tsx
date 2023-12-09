@@ -36,8 +36,8 @@ const Navbar = ({connected, connectToMetamask}: NavbarProps) => {
             <button className='py-1 px-3 lg:py-3 lg:px-[25px]   bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]' onClick={connectToMetamask}>
                {connected? 'Connected': 'Get Started'}
             </button >
-            {connected && <button className='py-1 px-3 lg:py-3 lg:px-[25px]   border-[#008000] text-[#008000] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]' onClick={connectToMetamask}>
-              View Election Results
+            {connected && <button className='py-1 px-3 lg:py-3 lg:px-[25px]   border-[#008000] text-[#008000] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]' >
+              <Link href="/election/results">View Election Results</Link>
             </button >}
             </div>
             </div>

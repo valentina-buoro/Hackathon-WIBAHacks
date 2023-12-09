@@ -28,8 +28,10 @@ const Footer = () => {
         </div>
         <div className="md:text-xl text-xs font-medium flex flex-col items-start space-y-3 md:space-y-10">
           <p>Home</p>
-          <p>Verification Process</p>
-          <p>Vote</p>
+          <p>Ongoing Election</p>
+          <p>Election News</p>
+          <p>Contact Us</p>
+          <p>FAQ</p>
         </div>
         <div className="md:text-xl text-xs tracking-tighter md:tracking-normal font-medium flex flex-col space-y-3 md:space-y-8">
           <p className="flex">

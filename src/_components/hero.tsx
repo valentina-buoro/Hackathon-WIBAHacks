@@ -24,10 +24,10 @@ const Hero = ({ connected }: NavbarProps) => {
             {connected && (
               <div className="flex flex-col md:flex-row gap-6 md:gap-12">
                 <button className="py-[22px] px-[65px]  bg-[#008000] text-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]">
-                  <Link href="/election/create-election">Create Vote</Link>
+                  <Link href="/election/create-election">Create Election</Link>
                 </button>
                 <button className="py-[22px] px-[65px]  text-[#008000] bg-[#FAFAFA] rounded-lg md:rounded-xl text-[14px] shadow-md shadow-[#2E2F35]">
-                  <Link href="/election/vote">Cast Vote</Link>
+                  <Link href="/cast-vote">Cast Vote</Link>
                 </button>
               </div>
             )}

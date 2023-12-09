@@ -12,7 +12,7 @@ const NewsLetter = ({ connected }: NavbarProps) => {
         <div className="col-span-1 lg:col-span-2 bg-[#888888]">
           <div className="pt-6 lg:pt-[81px] lg:pb-[96px] lg:pl-[50px]">
             <div className="mb-3 md:mb-6">
-              <p className="mb-2 md:mb-4 font-bold text-2xl md:text-[32px]">Subscribe to Our Newsletter</p>
+              <p className="mb-2 md:mb-4 font-bold text-2xl md:text-[32px] p-6">Subscribe to Our Newsletter</p>
               <p className="text-[#666666] text-normal md:text-lg lg:text-2xl">Receive latest news and updates daily</p>
             </div>
             <div className="flex justify-between p-4 lg:w-[440px] w-[320px]  rounded-[10px] bg-[#FAFAFA] ">

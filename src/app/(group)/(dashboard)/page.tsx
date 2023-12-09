@@ -46,6 +46,10 @@ const Page = () => {
       alert("Please install metamask");
     }
   }
+
+
+
+
   /*useEffect(() => {
     getCandidates()
     getRemainingTime()
@@ -131,12 +135,10 @@ const Page = () => {
 <div>
   <Navbar connected={connected} connectToMetamask={connectToMetamask} />
   <Hero connected={connected} />
-  <ElectionNews/>
-  
+  <ElectionNews />
   <Faqs/>
   <NewsLetter/>
   <Footer/>
-
 </div>
 
   );

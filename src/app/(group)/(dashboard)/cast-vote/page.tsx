@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Register from "../../../../../public/registerVote.png";
+import { contractAbi, contractAddress } from "@/_constants/constant";
 import Link from "next/link";
 import { LoginProps } from "@/app/types";
 import { useRouter } from "next/navigation";
@@ -12,6 +13,28 @@ import Navbar from "@/_components/navbar";
 import { ethers } from "ethers";
 
 const Index = () => {
+  const router = useRouter();
+  const [votingStatus, setVotingStatus]= useState(true)
+  const [provider, setProvider] = useState({});
+  const [account, setAccount] = useState("");
+  const [connected, setConnected] = useState(false);
+  const [electionName, setElectionName] = useState('')
+  const [candidate, setCandidate] = useState('')
+
+  async function vote() {
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    const contractInstance = new ethers.Contract(
+      contractAddress, contractAbi, signer
+    )
+    const status = await contractInstance.castVote(electionName, candidate)
+    if(status){
+      router.push("/election/results");
+    }
+    console.log(status)
+    setVotingStatus(status)
+  }
   
 
   return (
@@ -22,7 +45,7 @@ const Index = () => {
           
           <div className="flex flex-col  justify-center gap-y-10">
             <div>
-              <p>Input generated code sent to you to cast your vote</p>
+              <p>Input Election Name</p>
             </div>
             <div className="flex justify-between p-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
               <input
@@ -30,11 +53,28 @@ const Index = () => {
                 placeholder="Enter your code"
                 id="full_name"
                 name="full_name"
-                value={""}
-                onChange={() => {}}
+                value={electionName}
+                onChange={(e) => {setElectionName(e.target.value)}}
               />
             </div>
-            <button className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] lg:py-4  lg:px-48 py-3 px-36">
+
+           {/* <div>
+              <p>Input Choice Candidate Index</p>
+              <p>Mark: 1</p>
+              <p>Tina: 2</p>
+              <p>Tony: 3</p>
+  </div>*/}
+            <div className="flex justify-between p-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
+              <input
+                className="bg-inherit w-11/12 border-none outline-none"
+                placeholder="Enter your code"
+                id="full_name"
+                name="full_name"
+                value={candidate}
+                onChange={(e) => {setCandidate(e.target.value)}}
+              />
+            </div>
+            <button className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] lg:py-4  lg:px-48 py-3 px-36" onClick={vote}>
               {" "}
               Submit
             </button>

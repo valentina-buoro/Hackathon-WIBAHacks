@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Register from "../../../../../public/registerVote.png";
@@ -20,6 +20,7 @@ const Index = () => {
   const [connected, setConnected] = useState(false);
   const [electionName, setElectionName] = useState('')
   const [candidate, setCandidate] = useState('')
+  const [list, setList] = useState<any>([])
 
   async function vote() {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
@@ -35,7 +36,27 @@ const Index = () => {
     console.log(status)
     setVotingStatus(status)
   }
-  
+  async function getCandidates() {
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    const contractInstance = new ethers.Contract(
+      contractAddress, contractAbi, signer
+    )
+    const status = await contractInstance.getCandidates(electionName)
+    console.log(status)
+    setList(status)
+  }
+  useEffect(() => {
+    // Fetch initial data when the component mounts
+    getCandidates();
+
+    // Set up an interval to fetch data every 5 seconds (adjust as needed)
+    const interval = setInterval(getCandidates, 5000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, );
 
   return (
     <>
@@ -57,6 +78,12 @@ const Index = () => {
                 onChange={(e) => {setElectionName(e.target.value)}}
               />
             </div>
+            <div>
+              <p>Input Choice Candidate Index</p>
+              {list.map((index:any, list:any)=>{
+                <p key={index}>{list}</p>
+              })}
+  </div>
 
            {/* <div>
               <p>Input Choice Candidate Index</p>

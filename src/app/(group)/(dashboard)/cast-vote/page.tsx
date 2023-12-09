@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import axios from "axios";
 import Register from "../../../../../public/registerVote.png";
 import { contractAbi, contractAddress } from "@/_constants/constant";
-import Link from "next/link";
 import { LoginProps } from "@/app/types";
 import { useRouter } from "next/navigation";
 import Footer from "@/_components/footer";
@@ -14,56 +12,67 @@ import { ethers } from "ethers";
 
 const Index = () => {
   const router = useRouter();
-  const [votingStatus, setVotingStatus]= useState(true)
+  const [votingStatus, setVotingStatus] = useState(true);
   const [provider, setProvider] = useState({});
   const [account, setAccount] = useState("");
   const [connected, setConnected] = useState(false);
-  const [electionName, setElectionName] = useState('')
-  const [candidate, setCandidate] = useState('')
-  const [list, setList] = useState<any>([])
+  const [electionName, setElectionName] = useState("");
+  const [candidate, setCandidate] = useState("");
+  const [list, setList] = useState<any>([]);
+
+
+  
 
   async function vote() {
-    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
     const contractInstance = new ethers.Contract(
-      contractAddress, contractAbi, signer
-    )
-    const status = await contractInstance.castVote(electionName, candidate)
-    if(status){
+      contractAddress,
+      contractAbi,
+      signer
+    );
+    const status = await contractInstance.castVote(electionName, candidate);
+    if (status) {
       router.push("/election/results");
     }
-    console.log(status)
-    setVotingStatus(status)
+    console.log(status);
+    setVotingStatus(status);
   }
   async function getCandidates() {
-    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
     const contractInstance = new ethers.Contract(
-      contractAddress, contractAbi, signer
-    )
-    const status = await contractInstance.getCandidates(electionName)
-    console.log(status)
-    setList(status)
+      contractAddress,
+      contractAbi,
+      signer
+    );
+    const status = await contractInstance.getCandidates(electionName);
+    console.log(status);
+    setList(status);
   }
   useEffect(() => {
     // Fetch initial data when the component mounts
+   
     getCandidates();
 
     // Set up an interval to fetch data every 5 seconds (adjust as needed)
-    const interval = setInterval(getCandidates, 5000);
+    const interval = setInterval(getCandidates, 1000);
 
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
-  }, );
+  });
 
   return (
     <>
-      <Navbar  />
+  
       <div className="flex flex-col lg:flex-row justify-between h-screen p-8 lg:px-20 bg-[#F8F3F3]">
         <div className=" flex flex-col items-center justify-center space-y-10 lg:space-y-40 lg:h-screen lg:w-2/5">
-          
           <div className="flex flex-col  justify-center gap-y-10">
             <div>
               <p>Input Election Name</p>
@@ -75,22 +84,20 @@ const Index = () => {
                 id="full_name"
                 name="full_name"
                 value={electionName}
-                onChange={(e) => {setElectionName(e.target.value)}}
+                onChange={(e) => {
+                  setElectionName(e.target.value);
+                }}
               />
             </div>
-            <div>
-              <p>Input Choice Candidate Index</p>
-              {list.map((index:any, list:any)=>{
-                <p key={index}>{list}</p>
-              })}
-  </div>
+            {list.length > 0 && (
+              <div>
+                <p>Input Choice Candidate Index</p>
+                {list.map((name: string, index: any) => (
+                  <p key={index}>{name} {index+1}</p>
+                ))}
+              </div>
+            )}
 
-           {/* <div>
-              <p>Input Choice Candidate Index</p>
-              <p>Mark: 1</p>
-              <p>Tina: 2</p>
-              <p>Tony: 3</p>
-  </div>*/}
             <div className="flex justify-between p-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
               <input
                 className="bg-inherit w-11/12 border-none outline-none"
@@ -98,10 +105,15 @@ const Index = () => {
                 id="full_name"
                 name="full_name"
                 value={candidate}
-                onChange={(e) => {setCandidate(e.target.value)}}
+                onChange={(e) => {
+                  setCandidate(e.target.value);
+                }}
               />
             </div>
-            <button className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] lg:py-4  lg:px-48 py-3 px-36" onClick={vote}>
+            <button
+              className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] lg:py-4  lg:px-48 py-3 px-36"
+              onClick={vote}
+            >
               {" "}
               Submit
             </button>

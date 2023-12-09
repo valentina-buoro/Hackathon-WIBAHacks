@@ -20,9 +20,6 @@ const Index = () => {
   const [candidate, setCandidate] = useState("");
   const [list, setList] = useState<any>([]);
 
-
-  
-
   async function vote() {
     const provider = new ethers.providers.Web3Provider(
       (window as any).ethereum
@@ -56,28 +53,17 @@ const Index = () => {
     console.log(status);
     setList(status);
   }
-  useEffect(() => {
-    // Fetch initial data when the component mounts
-   
-    getCandidates();
-
-    // Set up an interval to fetch data every 5 seconds (adjust as needed)
-    const interval = setInterval(getCandidates, 1000);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(interval);
-  });
+  
 
   return (
     <>
-  
       <div className="flex flex-col lg:flex-row justify-between h-screen p-8 lg:px-20 bg-[#F8F3F3]">
         <div className=" flex flex-col items-center justify-center space-y-10 lg:space-y-40 lg:h-screen lg:w-2/5">
           <div className="flex flex-col  justify-center gap-y-10">
             <div>
               <p>Input Election Name</p>
             </div>
-            <div className="flex justify-between p-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
+            <div className="flex justify-between pl-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
               <input
                 className="bg-inherit w-11/12 border-none outline-none"
                 placeholder="Enter your code"
@@ -88,15 +74,34 @@ const Index = () => {
                   setElectionName(e.target.value);
                 }}
               />
+               <div className="bg-[#001F3F] p-4">
+               <button  className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] h-full"
+              onClick={getCandidates}>
+                Submit
+              </button>
+               </div>
+             
             </div>
+         
+               
+              
             {list.length > 0 && (
               <div>
-                <p>Input Choice Candidate Index</p>
+                <p>Input Choice Candidate Number</p>
+                <table>
+                  <tr >
+                    <th className="py-2 px-4 border-b">Candidate Name</th>
+                    <th className="py-2 px-4 border-b">Candidate Number</th>
+                  </tr>
+                </table>
                 {list.map((name: string, index: any) => (
-                  <p key={index}>{name} {index+1}</p>
+                  <tr key={index} className="flex justify-around py-2 px-4 border-b " >
+                    <td className="py-2 px-4 border-b">{name}</td>
+                    <td className="py-2 px-4 border-b">{index + 1}</td>
+                  </tr>
                 ))}
-              </div>
-            )}
+             
+            
 
             <div className="flex justify-between p-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
               <input
@@ -116,7 +121,7 @@ const Index = () => {
             >
               {" "}
               Submit
-            </button>
+            </button> </div>)}
           </div>
         </div>
         <div className="flex flex-col items-center justify-center lg:h-screen mx-auto lg:w-3/5">

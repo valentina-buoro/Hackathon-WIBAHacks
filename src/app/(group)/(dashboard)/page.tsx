@@ -11,6 +11,7 @@ import Hero from "@/_components/hero";
 import ElectionNews from "@/_components/electionNews";
 import NewsLetter from "@/_components/newsLetter";
 import Footer from "@/_components/footer";
+import Faqs from "@/_components/faq";
 
 const Page = () => {
   const [user, setUser] = useState({
@@ -131,6 +132,8 @@ const Page = () => {
   <Navbar connected={connected} connectToMetamask={connectToMetamask} />
   <Hero connected={connected} />
   <ElectionNews/>
+  
+  <Faqs/>
   <NewsLetter/>
   <Footer/>
 

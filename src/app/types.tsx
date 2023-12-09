@@ -13,3 +13,9 @@ export interface NavbarProps{
     connected?: boolean
     connectToMetamask? : ()=> void
 }
+
+export interface aboutFaqProps {
+    question: string;
+    answer: string;
+  }
+  

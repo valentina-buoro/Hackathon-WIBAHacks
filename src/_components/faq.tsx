@@ -61,7 +61,7 @@ const Faqs = () => {
         <div className="col-span-1">
           <div className="mb-16">
             <p className="font-bold text-2xl md:text-[32px] mb-4">Frequently Asked Question</p>
-            <p className="text-[#4E4A4B)] text-normal md:text-lg lg:text-2xl">Questions you might ask about our service</p>
+            <p className="text-[#4E4A4B] text-normal md:text-lg lg:text-2xl">Questions you might ask about our service</p>
           </div>
           <div className="space-y-5 pt-6">
             {Data.map((faq, index) => (

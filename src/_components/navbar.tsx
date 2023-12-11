@@ -23,7 +23,8 @@ const Navbar = ({ connected, connectToMetamask }: NavbarProps) => {
             <span>TrustBallot</span>
           </span>
         </Link>
-        <div className="hidden md:flex space-x-10">
+        { connectToMetamask &&
+          <div className="hidden md:flex space-x-10">
           <Link
             href="/"
             className="text-sm font-medium leading-5 active:font-black"
@@ -43,6 +44,8 @@ const Navbar = ({ connected, connectToMetamask }: NavbarProps) => {
             <a onClick={() => scrollToSection("section4")}> FAQ</a>
           </span>
         </div>
+        }
+        
         <div>
           <div className="flex gap-4">
             <button

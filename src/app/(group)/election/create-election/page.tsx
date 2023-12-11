@@ -142,7 +142,7 @@ const Page = (props: any) => {
         <div className="mx-auto w-[300px] md:w-[460px]  ">
           <div className="mb-6 md:mb-8 lg:mb-10 text-center">
             <p className=" text-2xl md:3xl lg:text-4xl font-bold">
-              Create Vote
+              Create Election
             </p>
           </div>
           <div className="mb-4 md:mb-6">

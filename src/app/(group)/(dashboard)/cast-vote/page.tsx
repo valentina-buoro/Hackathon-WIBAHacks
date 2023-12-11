@@ -95,8 +95,15 @@ const Index = () => {
   return (
     <>
     <Navbar connected/>
+   
       <div className="flex flex-col lg:flex-row justify-between h-screen p-8 lg:px-20 bg-[#F8F3F3]">
-        <div className=" flex flex-col items-center justify-center space-y-10 lg:space-y-40 lg:h-screen lg:w-2/5">
+
+        <div className=" flex flex-col items-center justify-center space-y-10  lg:h-screen lg:w-2/5">
+        <div className="mb-6 text-center">
+            <p className=" text-2xl md:3xl lg:text-4xl font-bold">
+              Cast Your Vote
+            </p>
+          </div>
           <div className="flex flex-col  justify-center gap-y-10">
             <div>
               <p>Input Election Name</p>
@@ -112,7 +119,7 @@ const Index = () => {
                   setElectionName(e.target.value);
                 }}
               />
-               <div className="bg-[#001F3F] p-4">
+               <div className="bg-[#36C] p-4">
                <button  className="rounded-[10px] text-[#F6F4F4] bg-[#36C] h-full"
               onClick={getCandidates}>
                 Submit

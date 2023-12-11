@@ -9,6 +9,8 @@ import Footer from "@/_components/footer";
 import Navbar from "@/_components/navbar";
 
 import { ethers } from "ethers";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Index = () => {
   const router = useRouter();
@@ -31,12 +33,34 @@ const Index = () => {
       contractAbi,
       signer
     );
-    const status = await contractInstance.castVote(electionName, candidate);
+    try{
+      const status = await contractInstance.castVote(electionName, candidate);
     if (status) {
+      toast.success("Voted successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       router.push("/election/results");
     }
-    console.log(status);
     setVotingStatus(status);
+    }catch (err:any) {
+      toast.error(err.reason, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }
   async function getCandidates() {
     const provider = new ethers.providers.Web3Provider(
@@ -49,9 +73,22 @@ const Index = () => {
       contractAbi,
       signer
     );
-    const status = await contractInstance.getCandidates(electionName);
+    try{
+      const status = await contractInstance.getCandidates(electionName);
     console.log(status);
     setList(status);
+    } catch (err:any) {
+      toast.error(err.reason, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }
   
 

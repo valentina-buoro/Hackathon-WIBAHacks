@@ -6,6 +6,8 @@ import { contractAddress, contractAbi } from "../../../../_constants/constant";
 import Navbar from "@/_components/navbar";
 import Footer from "@/_components/footer";
 import BarChart from "@/_components/BarChart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface ChartData {
   labels: string[];
@@ -36,7 +38,8 @@ const Page = (props: any) => {
       contractAbi,
       signer
     );
-    const results = await contractInstance.getResults(electionName);
+    try{
+      const results = await contractInstance.getResults(electionName);
     const status = await contractInstance.getCandidates(electionName);
     console.log('status',status);
     console.log('results', results);
@@ -47,9 +50,23 @@ const Page = (props: any) => {
     setChartDat({labels, values})
     console.log(chartDat)
     console.log('newResults', newResults)
+    }catch (err:any) {
+      console.log(err.reason);
+      toast.error(err.reason, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+    }
   }
 
-  useEffect(() => {
+ /* useEffect(() => {
     // Fetch initial data when the component mounts
    
     getElection();
@@ -59,7 +76,7 @@ const Page = (props: any) => {
 
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
-  });
+  });*/
   
 
   return (
@@ -94,7 +111,7 @@ const Page = (props: any) => {
             </button>
           </div>
         </div>
-        {chartDat && (
+        {chartDat && results && (
           <>
             <div className="mb-6 md:mb-8 lg:mb-10 text-left">
               <p className=" text-base md:text-2xl  font-bold mt-8 lg:mt-16">

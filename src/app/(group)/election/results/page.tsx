@@ -84,7 +84,7 @@ const Page = (props: any) => {
     <>
       <Navbar connected />
 
-      <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
+      <div className=" justify-between mt-4 p-8 lg:p-20 bg-[#F8F3F3]">
         <div>
           <label
             className="font-medium text-base md:text-[18px] text-[#0D0D0D] mb-2"

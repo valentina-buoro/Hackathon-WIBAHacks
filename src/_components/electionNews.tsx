@@ -27,7 +27,7 @@ const ElectionNews = () => {
                 </div>
             </div>
         </div>
-        <div className='mx-auto mt-40'> 
+        <div className='mx-auto mt-40'  id="section2"> 
             <p className='text-[30px] md:text-[40px] lg:text-[63px] font-bold mb-14 text-center' >Election News</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
                 <div className='col-span-1 w-[280px] md:w-[363px] mx-auto text-left'>

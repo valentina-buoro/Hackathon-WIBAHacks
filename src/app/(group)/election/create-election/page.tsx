@@ -138,7 +138,7 @@ const Page = (props: any) => {
     <>
       <Navbar connected  />
 
-      <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
+      <div className=" justify-between nt-4 p-8 lg:p-20 bg-[#F8F3F3]">
         <div className="mx-auto w-[300px] md:w-[460px]  ">
           <div className="mb-6 md:mb-8 lg:mb-10 text-center">
             <p className=" text-2xl md:3xl lg:text-4xl font-bold">

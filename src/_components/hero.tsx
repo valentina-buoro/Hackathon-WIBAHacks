@@ -7,7 +7,7 @@ import { NavbarProps } from "@/app/types";
 
 const Hero = ({ connected }: NavbarProps) => {
   return (
-    <div className="bg-[#E1E9F9] mx-auto py-16 px-8 lg:px-20">
+    <div className="bg-[#E1E9F9] mx-auto mt-6 py-16  px-8 lg:px-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-5">
         <div className="col-span-1">
           <p className="text-3xl md:text-4xl lg:text-6xl font-normal md:leading-[96px]">

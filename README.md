@@ -29,7 +29,7 @@ TrustBallot is a website that makes use of blockchain technology to create free,
 
 
 
-Open [https://github.com/debeemedia/voting_web3_api/tree/main) to view the repository for backend and smart contract codes.
+Visit [https://github.com/debeemedia/voting_web3_api/tree/main) to view the repository for backend and smart contract codes.
 
 
 

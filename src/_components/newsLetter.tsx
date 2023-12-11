@@ -15,7 +15,7 @@ const NewsLetter = () => {
               <p className="mb-2 md:mb-4 font-bold text-2xl md:text-[32px] p-6">Subscribe to Our Newsletter</p>
               <p className="text-[#666666] mx-4 text-normal md:text-lg lg:text-2xl">Receive latest news and updates daily</p>
             </div>
-            <div className="flex justify-between m-4 p-4 lg:w-[440px] w-[320px]  rounded-[10px] bg-[#FAFAFA] ">
+            <div className="flex justify-between m-4 p-4 lg:w-[440px] w-[280px]  rounded-[10px] bg-[#FAFAFA] ">
               <input
                 className="bg-inherit w-11/12 border-none outline-none"
                 placeholder="Enter your email address"

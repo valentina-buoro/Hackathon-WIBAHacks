@@ -6,7 +6,7 @@ TrustBallot is a website that makes use of blockchain technology to create free,
 ## Installation and Usage
 
 ### Please note that because the app makes use of blockchain technology, you need to have metamask extension installed on your browser
-[Chrome Web Store](https://chrome.google.com/webstore)
+[Chrome Web Store](https://chromewebstore.google.com/search/metamask)
 
 ### Local Enviroment
 

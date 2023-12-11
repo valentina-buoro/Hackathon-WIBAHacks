@@ -136,7 +136,7 @@ const Page = (props: any) => {
 */
   return (
     <>
-      <Navbar />
+      <Navbar connected  />
 
       <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
         <div className="mx-auto w-[300px] md:w-[460px]  ">

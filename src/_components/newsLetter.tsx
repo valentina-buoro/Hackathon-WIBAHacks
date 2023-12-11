@@ -5,7 +5,7 @@ import News from "../../public/newsletter.svg";
 import Link from "next/link";
 import { NavbarProps } from "@/app/types";
 
-const NewsLetter = ({ connected }: NavbarProps) => {
+const NewsLetter = () => {
   return (
     <div className=" mx-auto  px-8 lg:px-20">
       <div className="grid grid-cols-1 lg:grid-cols-3  ">

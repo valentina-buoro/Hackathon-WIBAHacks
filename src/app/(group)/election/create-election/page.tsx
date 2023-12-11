@@ -270,7 +270,7 @@ const Page = (props: any) => {
            
           </div>
           <button
-            className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] w-full  py-3 md:py-4  "
+            className="rounded-[10px] text-[#F6F4F4] bg-[#36C] w-full  py-3 md:py-4  "
             onClick={createElection}
           >
             Create Election

@@ -113,7 +113,7 @@ const Index = () => {
                 }}
               />
                <div className="bg-[#001F3F] p-4">
-               <button  className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] h-full"
+               <button  className="rounded-[10px] text-[#F6F4F4] bg-[#36C] h-full"
               onClick={getCandidates}>
                 Submit
               </button>
@@ -154,7 +154,7 @@ const Index = () => {
               />
             </div>
             <button
-              className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] lg:py-4  lg:px-48 py-3 px-36"
+              className="rounded-[10px] text-[#F6F4F4] bg-[#36C] lg:py-4  lg:px-48 py-3 px-36"
               onClick={vote}
             >
               {" "}

@@ -44,12 +44,14 @@ const Page = (props: any) => {
     console.log('status',status);
     console.log('results', results);
     const newResults = results.map((hex:any) => parseInt(hex, 16));
-    const labels = status
-    const values = newResults
+    //const labels = status
+    //const values = newResults
+    //const sum = values.reduce((accumulator:number, currentValue:number) => accumulator + currentValue, 0);
+    const labels = results.map((name:any) => name.choiceText)
+    const values = results.map((votes:any) => parseInt(votes.voteCount, 16))
+  
    setResults(results)
     setChartDat({labels, values})
-    console.log(chartDat)
-    console.log('newResults', newResults)
     }catch (err:any) {
       console.log(err.reason);
       toast.error(err.reason, {
@@ -104,7 +106,7 @@ const Page = (props: any) => {
 
             />
             <button
-              className="rounded-[10px] text-[#F6F4F4] bg-[#001F3F] p-4"
+              className="rounded-[10px] text-[#F6F4F4] bg-[#36C] p-4"
               onClick={getElection}
             >
               Submit

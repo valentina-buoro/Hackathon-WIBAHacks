@@ -24,8 +24,9 @@ const Page = (props: any) => {
     labels: [],
     values: [],
   });
-  const [results, setResults] = useState <any> (null);
+  const [results, setResults] = useState<any>(null);
   const [electionName, setElectionName] = useState("");
+  const [totalVotes, setTotalVotes] = useState(0);
 
   async function getElection() {
     const provider = new ethers.providers.Web3Provider(
@@ -38,21 +39,21 @@ const Page = (props: any) => {
       contractAbi,
       signer
     );
-    try{
+    try {
       const results = await contractInstance.getResults(electionName);
-    const status = await contractInstance.getCandidates(electionName);
-    console.log('status',status);
-    console.log('results', results);
-    const newResults = results.map((hex:any) => parseInt(hex, 16));
-    //const labels = status
-    //const values = newResults
-    //const sum = values.reduce((accumulator:number, currentValue:number) => accumulator + currentValue, 0);
-    const labels = results.map((name:any) => name.choiceText)
-    const values = results.map((votes:any) => parseInt(votes.voteCount, 16))
-  
-   setResults(results)
-    setChartDat({labels, values})
-    }catch (err:any) {
+      const labels = results.map((name: any) => name.choiceText);
+      const values = results.map((votes: any) => parseInt(votes.voteCount, 16));
+      const sum = values.reduce(
+        (accumulator: number, currentValue: number) =>
+          accumulator + currentValue,
+        0
+      );
+      console.log("sum", sum);
+
+      setResults(results);
+      setChartDat({ labels, values });
+      setTotalVotes(sum);
+    } catch (err: any) {
       console.log(err.reason);
       toast.error(err.reason, {
         position: "top-right",
@@ -64,11 +65,10 @@ const Page = (props: any) => {
         progress: undefined,
         theme: "light",
       });
-
     }
   }
 
- /* useEffect(() => {
+  /* useEffect(() => {
     // Fetch initial data when the component mounts
    
     getElection();
@@ -79,19 +79,18 @@ const Page = (props: any) => {
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
   });*/
-  
 
   return (
     <>
-    <Navbar connected />
-     
+      <Navbar connected />
+
       <div className=" justify-between  p-8 lg:p-20 bg-[#F8F3F3]">
         <div>
           <label
             className="font-medium text-base md:text-[18px] text-[#0D0D0D] mb-2"
             htmlFor="link"
           >
-           Input Election Name to View Results
+            Input Election Name to View Results
           </label>
           <div className="flex justify-between mt-2 pl-4 lg:w-[440px] w-[320px] border border-[#D9D9D9] rounded-[10px] bg-[#FAFAFA] ">
             <input
@@ -103,7 +102,6 @@ const Page = (props: any) => {
               onChange={(e) => {
                 setElectionName(e.target.value);
               }}
-
             />
             <button
               className="rounded-[10px] text-[#F6F4F4] bg-[#36C] p-4"
@@ -117,9 +115,8 @@ const Page = (props: any) => {
           <>
             <div className="mb-6 md:mb-8 lg:mb-10 text-left">
               <p className=" text-base md:text-2xl  font-bold mt-8 lg:mt-16">
-                Total Number of voters: 
+                Total Number of voters: {totalVotes}
               </p>
-              
             </div>
 
             <div className="mx-auto w-[300px] md:w-[460px]  ">

@@ -8,8 +8,15 @@ import Facebook from "../../public/facebook.svg";
 import Youtube from "../../public/youtube.svg";
 import Linkedin from "../../public/linkedin.svg";
 import Twitter from "../../public/twitter.svg";
+import Scroll from "../../public/scroll.png";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="px-8 lg:px-20">
       <div className="flex items-center justify-center border-b border-[#D9D9D9] pb-10 pt-6">
@@ -20,11 +27,19 @@ const Footer = () => {
           <span>TrustBallot</span>
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-3 md:gap-5 lg:px-10 py-14">
+      <div className="grid grid-cols-3 gap-3 md:gap-5 lg:px-10 py-14 ">
         <div>
           <p className="md:text-xl text-xs font-semibold ">
             Banana Island, Ikoyi, Lagos State, Nigeria
           </p>
+
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-10 left-8  text-[#A9A9A9] p-2 rounded "
+          >
+            <Image src={Scroll} alt="scroll" />
+            Back to Top
+          </button>
         </div>
         <div className="md:text-xl text-xs font-medium flex flex-col items-start space-y-3 md:space-y-10">
           <p>Home</p>

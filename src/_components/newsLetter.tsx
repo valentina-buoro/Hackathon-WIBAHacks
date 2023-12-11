@@ -7,7 +7,7 @@ import { NavbarProps } from "@/app/types";
 
 const NewsLetter = () => {
   return (
-    <div className=" mx-auto  px-8 lg:px-20">
+    <div className=" mx-auto  px-8 lg:px-20" id="section2">
       <div className="grid grid-cols-1 lg:grid-cols-3  ">
         <div className="col-span-1 lg:col-span-2 bg-[#888888]">
           <div className="pt-6 lg:pt-[81px] lg:pb-[96px] lg:pl-[50px]">

@@ -47,7 +47,7 @@ const Faqs = () => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
   return (
-    <div className=" mx-auto py-16 px-8 lg:px-20 lg:py-40">
+    <div className=" mx-auto py-16 px-8 lg:px-20 lg:py-40" id="section4">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 my-5">
         <div className=" col-span-1 flex items-center justify-center">
           <div className="h-5/6 w-[265px] lg:w-[524px]">

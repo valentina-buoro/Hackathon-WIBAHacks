@@ -8,24 +8,30 @@ import { NavbarProps } from '@/app/types'
 
 
 const Navbar = ({connected, connectToMetamask}: NavbarProps) => {
+  const scrollToSection = (id:any) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className=''>
         <div className='flex justify-between items-center h-16 pl-8  pr-4 lg:pl-20  lg:pr-10 shadow-md'>
            <Link href='/'> <span className='text-[#3366CC] font-black flex md:text-[28.777px] md:leading-[ 25.899px] items-center justify-center cursor-pointer '><span className='w-[30px] h-[30px] md:w-[50px] md:h-[50px] flex items-center justify-center'><Image src={Logo} alt="logo"  /> </span><span>TrustBallot</span></span></Link>
             <div className='hidden md:flex space-x-10'> 
-            <Link href="/" className='text-sm font-medium leading-5 active:font-black' >
+            <Link href="/" className='text-sm font-medium leading-5 active:font-black'  >
                     Home
                 </Link>
-                <Link href="/" className='font-medium leading-5 active:font-black'>
+                <Link  href="#section1"className='font-medium leading-5 active:font-black' onClick={() => scrollToSection('section1')}>
                 Ongoing Election
                 </Link>
-                <Link href="/" className='font-medium leading-5 active:font-black'>
+                <Link href="#section2" className='font-medium leading-5 active:font-black'  onClick={() => scrollToSection('section2')}>
                 Election News
                 </Link>
-                <Link href="/" className='font-medium leading-5 active:font-black'>
+                <Link href="#section3" className='font-medium leading-5 active:font-black'  onClick={() => scrollToSection('section3')}>
                 Contact Us
                 </Link>
-                <Link href="/" className='font-medium leading-5 active:font-black'>
+                <Link href="#section4" className='font-medium leading-5 active:font-black'  onClick={() => scrollToSection('section4')}>
                 FAQ
                 </Link>
 

@@ -9,8 +9,8 @@ import News3 from '../../public/news3.png'
 
 const ElectionNews = () => {
   return (
-    <div className='px-8 lg:px-20 mx-auto mt-24'>
-        <div className='mx-auto'>
+    <div className='px-8 lg:px-20 mx-auto mt-24' >
+        <div className='mx-auto' id="section1">
             <p className='text-[30px] md:text-[40px] lg:text-[63px] font-bold mb-14 text-center'>Ongoing <span className="text-[#008000]">Elections</span> </p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 my-5'>
                 <div className='col-span-1 w-[280px] md:w-[400px] mx-auto text-center'>

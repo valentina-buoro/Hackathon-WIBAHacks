@@ -150,7 +150,7 @@ const Page = (props: any) => {
               className="font-medium text-base md:text-[18px] text-[#0D0D0D] mb-2"
               htmlFor="title"
             >
-              Voting Title
+              Election Title
             </label>
             <div className="flex justify-between p-2 md:p-4 w-full rounded-lg border border-[#666666] ">
               <input
